@@ -33,8 +33,9 @@ li,img{
     margin:0 auto;
 }
 
-.error-message{
+.results-error{
     color: red;
+    font-weight: bold;
 }
 
 .hidden{

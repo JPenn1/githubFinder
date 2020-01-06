@@ -4,9 +4,10 @@
         console.log(responseJson);
         console.log(responseJson.length);
         console.log(responseJson[0].owner.login)
+        
         $('.results-list').empty();
 
-        let userHeader = `<h3>UserName: ${responseJson[i].owner.login}</h3>
+        let userHeader = `<h3>UserName: ${responseJson[0].owner.login}</h3>
         <h3># of Repos: ${responseJson.length}</h3>`
     
         $('.results-list').append(userHeader)
@@ -30,14 +31,19 @@
         fetch(url)
             .then(response=> {
                 if (response.ok) {
+                    $(".results-error").empty();
                     return response.json();
                 }
-                throw new Error();
+               
             })
 
             .then(responseJson => displayResults(responseJson))
 
-            .catch(error => {alert('Something went wrong')});
+            .catch(error => {
+                $(".results-error").empty();
+                $(".results-list").addClass("hidden");
+                $(".results-error").text(`${userSearchValue} is not a valid Github UserName, Please try again`);
+            });
              
        };
 
