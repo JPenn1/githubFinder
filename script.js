@@ -6,7 +6,7 @@
         console.log(responseJson[0].owner.login)
         $('.results-list').empty();
 
-        let userHeader = `<h3>UserName: ${responseJson[0].owner.login}</h3>
+        let userHeader = `<h3>UserName: ${responseJson[i].owner.login}</h3>
         <h3># of Repos: ${responseJson.length}</h3>`
     
         $('.results-list').append(userHeader)
