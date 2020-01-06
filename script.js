@@ -4,21 +4,22 @@
         console.log(responseJson);
         console.log(responseJson.length);
         console.log(responseJson[0].owner.login)
-       // $('#results-list').empty();
-        let userHeader = `<h3>${user}</h3>
-        <h3>${responseJson.length}</h3>`
+        $('.results-list').empty();
+
+        let userHeader = `<h3>UserName: ${responseJson[0].owner.login}</h3>
+        <h3># of Repos: ${responseJson.length}</h3>`
     
-        $('#results').append(userHeader)
+        $('.results-list').append(userHeader)
         for(let i=0; i < responseJson.length; i++){
-            $('#results').html(`<p>
+            $('.results-list').append(`<p>
                          
-                ${responseJson[0].name}
+                ${responseJson[i].name}<br>
                 <span>                
-                <a href="${responseJson[0].html_url}">${responseJson[0].html_url}</a>
+                <a href="${responseJson[i].html_url}">${responseJson[0].html_url}</a>
                 </span></p>`
                  
             )}
-        $('#results').removeClass("hidden");    
+        $('.results-list').removeClass("hidden");    
     };
     
     function getUserRepos(userSearchValue){
@@ -31,7 +32,7 @@
                 if (response.ok) {
                     return response.json();
                 }
-                throw new Error(response.statusText);
+                throw new Error();
             })
 
             .then(responseJson => displayResults(responseJson))
