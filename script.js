@@ -15,7 +15,7 @@
                          
                 ${responseJson[i].name}<br>
                 <span>                
-                <a href="${responseJson[i].html_url}">${responseJson[0].html_url}</a>
+                <a href="${responseJson[i].html_url}">${responseJson[i].html_url}</a>
                 </span></p>`
                  
             )}
