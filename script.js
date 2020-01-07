@@ -38,7 +38,7 @@
             })
 
             .then(responseJson => displayResults(responseJson))
-
+//the catch intiiates the error
             .catch(error => {
                 $(".results-error").empty();
                 $(".results-list").addClass("hidden");
